@@ -1,46 +1,65 @@
+import java.util.*;
+
 public class MobilePhone {
 
-    // Attributes
-    private String owner;
-    private String colour;
-    private double screenSize;
-
-    // Constructor(s)
+    protected String owner;
+    protected String color;
+    protected double screenSize;
 
     public MobilePhone() {
-        this.owner = "XYZ";
-        this.colour = "white";
-        this.screenSize = 5.0;
+        //owner = "xyz";
+        //color = "white";
+        //screenSize = 5.0;
+        this("xyz", "white", 5.0);
     }
 
-    public MobilePhone(String owner, String colour, double screenSize) {
+    public MobilePhone(String owner, String color, double screenSize) {
         this.owner = owner;
-        this.colour = colour;
+        this.color = color;
         this.screenSize = screenSize;
     }
 
-    // Methods
-    public void setColour(String colour) {
-        this.colour = colour;
+    public String getOwner() {
+        return owner;
     }
 
-    public MobilePhone clonePhone() {
-        MobilePhone clonedPhone = new MobilePhone(this.owner, this.colour, this.screenSize);
-        return clonedPhone;
+    public String getColor() {
+        return color;
     }
 
-    public void ring () {
-        System.out.println("ring, ring, ring!");
+    public double getSize() {
+        return screenSize;
     }
 
-    public String sendSMS (String receiver) {
-        this.ring();
-        System.out.println("hello " + receiver + ", this is " + owner);
-        return "Successfully sent!";
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public void print () {
-        System.out.println("The owner is " + this.owner + "; The colour is " + this.colour + "; " +
-                "The screen size is " + this.screenSize);
+    public void setSize(double screenSize) {
+        if (screenSize > InterPhone.MAX_SCREEN_SIZE) {
+            this.screenSize = InterPhone.MAX_SCREEN_SIZE;
+        }else {
+            this.screenSize = screenSize;
+        }
     }
+
+    public void setColor(String col) {
+        color = col;
+    }
+
+    public void ring(String caller) {
+        System.out.println("ring, ring, ring, this is " + caller);
+    }
+
+    public String sendSMS(String receiver) {
+        //this.ring();
+        System.out.println("hello " + receiver + ", this is " + this.owner);
+        return "successfully sent";
+    }
+
+    public void print() {
+        System.out.println("The owner is " + this.owner + "; The color is "
+                + this.color + "; The screen size is " + this.screenSize);
+    }
+
 }

@@ -1,39 +1,32 @@
+import java.util.*;
+
 public class MobilePhoneApp {
+
     public static void main(String[] args) {
 
-        // Declaration and creation of MobilePhone object in 2 lines
-        MobilePhone myPhone;
-        myPhone = new MobilePhone();
+        //MobilePhone defaultPhone = new MobilePhone();
+        //defaultPhone.setOwner("Tom");
+        //defaultPhone.setColor("yellow");
+        //defaultPhone.setSize(10);
 
-        // Declaration and creation of MobilePhone object in 1 line
-        MobilePhone defaultPhone = new MobilePhone();
+        //MobilePhone johnPhone= new MobilePhone("John", "red", 7.0);
 
-        // Using the second constructor to initialise
-        MobilePhone johnPhone = new MobilePhone("John", "red", 7.0);
-        johnPhone.print();
+        //johnPhone.ring("Tom");
 
-        // Calling the ring method on defaultPhone
-        defaultPhone.ring();
+        MobilePhone janePhone = new FiveGPhone("Jane", "white", 5.0, 0.5, 20.0);
+        janePhone.sendSMS("John");
+        //janePhone.print();
 
-        // Calling the sendSMS method on John's phone and printing the acknowledgement message
-        System.out.println(johnPhone.sendSMS("Jane"));
+        janePhone = new TwoGPhone("Jane", "white", 5.0);
+        janePhone.sendSMS("John");
 
-        // Wrong way to copy/clone an object (Uncomment these lines below)
-//        MobilePhone clonedPhone = johnPhone;
-//        johnPhone.setColour("yellow");
-//        clonedPhone.print();
-        // clonedPhone still points to the object in memory pointed to by John's phone.
-        // There is no new object created in this process.
-        // When any fields in John's phone is changed, so does it in clonedPhone
+        InterPhone tomPhone = new FiveGPhone("Tom", "red", 6.0, 0.5, 30.0);
+        tomPhone.ring();
 
-        // Proper way to clone an object
-        MobilePhone clonedPhone = johnPhone.clonePhone();
-        johnPhone.setColour("yellow");
-        clonedPhone.print();
-        // Cloned phone's colour never changed, as they are two different objects with the same specifications/field values
-
-
-
+        tomPhone = new TwoGPhone("Tom", "red", 6.0);
+        tomPhone.ring();
 
     }
+
+
 }
